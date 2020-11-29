@@ -21,13 +21,22 @@
             <a href="https://nervous-swartz-5a0624.netlify.app"><span class="mdi mdi-github"></span>Github</a>            
           </div>
 
+          <div class="textBox" v-if="img1">
+            <h2><span>AndPick</span></h2>            
+            <p><b>AndPick</b>은 다양한 분야의 뉴스기사 및 기술블로그의 정보를 제공합니다.</p>
+            <p>- 구독 기능은 관심있는 뉴스, 기술 블로그를 추가하여 최신 정보를 확인합니다.</p>
+            <p>- 보드 기능은 구독하고 있는 채널의 기사를 저장하여 보관합니다.</p>
+            <p>- 마이페이지는 다양한 편집 기능을 통해 자신의 생각을 정리하여 보관합니다.</p>                        
+            <a href="https://github.com/potomatoo/AndPick"><span class="mdi mdi-github"></span>Github</a>            
+          </div>
+
           <div class="textBox" v-if="img2">
             <h2><span>My Museum</span></h2>            
             <p><b>My Museum</b>은 온라인을 통해 개인에 맞는 전시회를 제공합니다.</p>
             <p>- 작가, 화풍, 박물관 별로 작품을 감상할 수 있습니다.</p>
             <p>- 개인 취향에 맞는 작품을 추천받을 수 있습니다.</p>
             <p>- 좋아하는 작품을 저장하고 나만의 전시회를 만들 수 있습니다.</p>                        
-            <a href="#"><span class="mdi mdi-github"></span>Github</a>            
+            <a href="https://github.com/potomatoo/MM-MyMuseum-"><span class="mdi mdi-github"></span>Github</a>            
           </div>
 
           <div class="textBox" v-if="img3">
@@ -37,7 +46,7 @@
             <p>- Youtube의 교육 유튜버가 강사가 되어 강의를 제공합니다.</p>
             <p>- 동시적으로 정리를 할 수 있도록 노트 필기 기능 등 다양한 기능을 제공합니다.</p>
             <p>- NLTK를 활용하여 문제를 자동 생성합니다.</p>                        
-            <a href="#"><span class="mdi mdi-github"></span>Github</a>            
+            <a href="https://github.com/potomatoo/Byeper"><span class="mdi mdi-github"></span>Github</a>            
           </div>
 
           <div class="imgBox">
