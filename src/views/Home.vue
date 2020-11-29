@@ -51,13 +51,13 @@
 
           <div class="imgBox">
             <img v-if="img1" src="@/assets/img1.png" class="starbucks">
-            <img v-if="img2" src="@/assets/img1.png" class="starbucks">
-            <img v-if="img3" src="@/assets/img2.png" class="starbucks">
-            <img v-if="img4" src="@/assets/img3.png" class="starbucks">
+            <img v-if="img2" src="@/assets/img2.png" class="starbucks">
+            <img v-if="img3" src="@/assets/img3.png" class="starbucks">
+            <img v-if="img4" src="@/assets/img4.png" class="starbucks">
           </div>        
         </div>
         <ul class="thumb">
-          <li><div @click="imgSlider(true, false, false, false, '#017143')" style="background-color: #017143;">1</div></li>
+          <li><div @click="imgSlider(true, false, false, false, '#006DB5')" style="background-color: #006DB5;">1</div></li>
           <li><div @click="imgSlider(false, true, false, false, '#017143')" style="background-color: #017143;">2</div></li>
           <li><div @click="imgSlider(false, false, true, false, '#eb7495')" style="background-color: #eb7495;">3</div></li>
           <li><div @click="imgSlider(false, false, false, true, '#d752b1')" style="background-color: #d752b1;">4</div></li>
@@ -271,7 +271,7 @@ header ul li a
   left: 0;
   width: 100%;
   height: 100%;
-  background: #017143;
+  background: #006DB5;
   clip-path: circle(600px at right);
 }
 </style>
