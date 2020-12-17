@@ -46,4 +46,12 @@ section {
 		clip-path: circle(450px at center);
 	}
 }
+@media (max-width: 700px) {
+	section {
+		padding: 20px 20px 30px;
+	}
+	.circle {
+		clip-path: circle(1000px at center);
+	}
+}
 </style>

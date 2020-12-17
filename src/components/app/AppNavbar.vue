@@ -1,9 +1,9 @@
 <template>
 	<header>
-		<a @click="goHome()"><img src="@/assets/logo.png" class="logo"/></a>
+		<a @click="goHome('logo')"><img src="@/assets/logo.png" class="logo"/></a>
 		<div class="toggle" @click="toggleMenu()"></div>
 		<ul class="navigation">
-			<li><a @click="goHome()">Home</a></li>
+			<li><a @click="goHome('navbar')">Home</a></li>
 			<li><a @click="goWeb()">Web</a></li>
 			<li><a @click="goBigData()">BigData</a></li>
 			<li><a @click="goContact()">Contact</a></li>
@@ -21,11 +21,13 @@ export default {
 			menuToggle.classList.toggle('active');
 			navigation.classList.toggle('active');
 		},
-		goHome: function() {
+		goHome: function(where) {
 			if (this.$route.name !== 'Home') {
 				this.$router.push({ name: 'Home' });
 			}
-			this.toggleMenu();
+			if (where === 'navbar') {
+				this.toggleMenu();
+			}
 		},
 		goWeb: function() {
 			if (this.$route.name !== 'WebProject') {

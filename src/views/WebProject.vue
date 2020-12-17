@@ -117,7 +117,7 @@ hr {
 }
 .content .textBox a {
 	display: inline-block;
-	margin-top: 30px;
+	margin-top: 10px;
 	padding: 8px 20px;
 	background: #017143;
 	color: #fff;
@@ -182,8 +182,6 @@ hr {
 	.content .imgBox img {
 		max-width: 200px;
 		max-height: 200px;
-	}
-	.content .imgBox img {
 		opacity: 1;
 		animation: none;
 	}
