@@ -60,4 +60,15 @@ export default {
 		animation: none;
 	}
 }
+@media (max-width: 700px) {
+	.content .textBox h5 span {
+		color: #fff;
+	}
+	.content .imgBox img {
+		max-width: 200px;
+		max-height: 58px;
+		opacity: 1;
+		animation: none;
+	}
+}
 </style>
