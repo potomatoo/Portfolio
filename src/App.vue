@@ -1,15 +1,17 @@
 <template>
 	<div id="app">
-		<Home />
+		<app-main />
 	</div>
 </template>
 
 <script>
-import Home from '@/views/Home.vue';
+import AppMain from '@/components/app/AppMain.vue';
 
 export default {
 	name: 'App',
-	components: { Home }
+	components: {
+		AppMain
+	}
 };
 </script>
 

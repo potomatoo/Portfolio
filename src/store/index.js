@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		img1: true,
+		img1: false,
 		img2: false,
 		img3: false,
 		img4: false

@@ -1,8 +1,9 @@
 <template>
-	<div class="project">
+	<div class="webProject">
 		<div class="content">
 			<div class="textBox" v-if="img1">
 				<h2><span>장씨배우</span></h2>
+				<hr />
 				<p><b>장씨배우</b>은 영화 추천 커뮤니티 서비스입니다.</p>
 				<p>- 평점을 활용한 추천 알고리즘으로 영화를 추천합니다.</p>
 				<p>- 날씨API를 활용하여 해당 지역의 날씨에 어울리는 장르를 추천합니다.</p>
@@ -13,6 +14,7 @@
 
 			<div class="textBox" v-if="img2">
 				<h2><span>AndPick</span></h2>
+				<hr />
 				<p><b>AndPick</b>은 다양한 분야의 뉴스기사 및 기술블로그의 정보를 제공합니다.</p>
 				<p>- 구독 기능은 관심있는 뉴스, 기술 블로그를 추가하여 최신 정보를 확인합니다.</p>
 				<p>- 보드 기능은 구독하고 있는 채널의 기사를 저장하여 보관합니다.</p>
@@ -22,6 +24,7 @@
 
 			<div class="textBox" v-if="img3">
 				<h2><span>My Museum</span></h2>
+				<hr />
 				<p><b>My Museum</b>은 온라인을 통해 개인에 맞는 전시회를 제공합니다.</p>
 				<p>- 작가, 화풍, 박물관 별로 작품을 감상할 수 있습니다.</p>
 				<p>- 개인 취향에 맞는 작품을 추천받을 수 있습니다.</p>
@@ -31,8 +34,9 @@
 
 			<div class="textBox" v-if="img4">
 				<h2><span>Byeper</span></h2>
+				<hr />
 				<p><b>Byeper</b>는 학습자를 위한 교육 플랫폼입니다.</p>
-				<p>- 강의에서 변화율을 감지하여 자동으로 PPT를 추출하여 수업자료를 제공합니다.</p>
+				<p>- 변화율을 감지하여 자동으로 PPT를 추출하여 수업자료를 제공합니다.</p>
 				<p>- Youtube의 교육 유튜버가 강사가 되어 강의를 제공합니다.</p>
 				<p>- 동시적으로 정리를 할 수 있도록 노트 필기 기능 등 다양한 기능을 제공합니다.</p>
 				<p>- NLTK를 활용하여 문제를 자동 생성합니다.</p>
@@ -50,27 +54,37 @@
 	</div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import Thumb from '@/components/Thumb.vue';
 
 export default {
-	name: 'ProjectDescription',
+	name: 'WebProject',
 	components: {
 		Thumb
 	},
 	computed: {
 		...mapState(['img1', 'img2', 'img3', 'img4'])
+	},
+	methods: {
+		...mapMutations(['imgSlider'])
+	},
+	mounted: function() {
+		this.imgSlider({
+			img1: true,
+			img2: false,
+			img3: false,
+			img4: false,
+			color: '#006DB5'
+		});
 	}
 };
 </script>
 
-<style scoped>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+<style>
+hr {
+	margin: 0px 0px 30px 0px;
 }
-.project {
+.webProject {
 	width: 100%;
 }
 .content {
@@ -99,6 +113,7 @@ export default {
 }
 .content .textBox p {
 	color: #333;
+	font-size: 1em;
 }
 .content .textBox a {
 	display: inline-block;
@@ -122,6 +137,19 @@ export default {
 }
 .content .imgBox img {
 	max-width: 340px;
+	opacity: 0;
+	animation: fadeInBottom 0.5s linear forwards;
+	animation-delay: 0.5s;
+}
+@keyframes fadeInBottom {
+	0% {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY();
+		opacity: 1;
+	}
 }
 
 @media (max-width: 991px) {
@@ -155,6 +183,10 @@ export default {
 		max-width: 200px;
 		max-height: 200px;
 	}
+	.content .imgBox img {
+		opacity: 1;
+		animation: none;
+	}
 }
 @media (max-width: 700px) {
 	.content .imgBox {
@@ -162,6 +194,13 @@ export default {
 	}
 	.content .textBox a {
 		margin-top: 10px;
+	}
+	.content .imgBox img {
+		opacity: 1;
+		animation: none;
+	}
+	.content .textBox p {
+		font-size: 0.8em;
 	}
 }
 </style>

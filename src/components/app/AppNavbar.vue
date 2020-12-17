@@ -1,25 +1,49 @@
 <template>
 	<header>
-		<a href="#"><img src="@/assets/logo.png" class="logo"/></a>
+		<a @click="goHome()"><img src="@/assets/logo.png" class="logo"/></a>
 		<div class="toggle" @click="toggleMenu()"></div>
 		<ul class="navigation">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Web</a></li>
-			<li><a href="#">BigData</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a @click="goHome()">Home</a></li>
+			<li><a @click="goWeb()">Web</a></li>
+			<li><a @click="goBigData()">BigData</a></li>
+			<li><a @click="goContact()">Contact</a></li>
 		</ul>
 	</header>
 </template>
 
 <script>
 export default {
-	name: 'Navigation',
+	name: 'AppNavbar',
 	methods: {
 		toggleMenu: function() {
 			var menuToggle = document.querySelector('.toggle');
 			var navigation = document.querySelector('.navigation');
 			menuToggle.classList.toggle('active');
 			navigation.classList.toggle('active');
+		},
+		goHome: function() {
+			if (this.$route.name !== 'Home') {
+				this.$router.push({ name: 'Home' });
+			}
+			this.toggleMenu();
+		},
+		goWeb: function() {
+			if (this.$route.name !== 'WebProject') {
+				this.$router.push({ name: 'WebProject' });
+			}
+			this.toggleMenu();
+		},
+		goBigData: function() {
+			if (this.$route.name !== 'BigData') {
+				this.$router.push({ name: 'BigData' });
+			}
+			this.toggleMenu();
+		},
+		goContact: function() {
+			if (this.$route.name !== 'Contact') {
+				this.$router.push({ name: 'Contact' });
+			}
+			this.toggleMenu();
 		}
 	}
 };
@@ -41,6 +65,7 @@ header .logo {
 	position: relative;
 	max-width: 80px;
 	border-radius: 50%;
+	cursor: pointer;
 }
 
 header ul {
@@ -58,6 +83,7 @@ header ul li a {
 	font-weight: bold;
 	margin-left: 40px;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 @media (max-width: 991px) {
