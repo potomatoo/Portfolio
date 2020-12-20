@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div>
 		<section>
 			<div class="circle"></div>
 			<app-navbar />
@@ -35,7 +35,7 @@ section {
 	width: 100%;
 	height: 100%;
 	background: #c3323a;
-	clip-path: circle(45% at right);
+	clip-path: circle(600px at right);
 }
 
 @media (max-width: 991px) {
@@ -43,7 +43,7 @@ section {
 		padding: 20px 20px 120px;
 	}
 	.circle {
-		clip-path: circle(50% at center);
+		clip-path: circle(450px at center);
 	}
 }
 @media (max-width: 700px) {
@@ -51,7 +51,7 @@ section {
 		padding: 20px 20px 50px;
 	}
 	.circle {
-		clip-path: circle(120% at center bottom);
+		clip-path: circle(1000px at center);
 	}
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<div class="webProject">
-		<div class="content">
+		<div class="content" id="blur">
 			<div class="textBox" v-if="img1">
 				<h2><span>장씨배우</span></h2>
 				<hr />
@@ -10,6 +10,14 @@
 				<p>- 이상형 월드컵으로 좋아하는 배우가 출연한 영화를 추천합니다.</p>
 				<a href="https://nervous-swartz-5a0624.netlify.app"><span class="mdi mdi-monitor"></span>Service</a>
 				<a href="https://github.com/potomatoo/JangMovie"><span class="mdi mdi-github"></span>Github</a>
+				<a
+					@click="
+						toggle(
+							'https://drive.google.com/file/d/1TbpzJ3SC2Y2eTz49EHIU5KerHduIPb8m/preview?usp=sharing&embedded=true'
+						)
+					"
+					><span class="mdi mdi-play-circle"></span>UCC</a
+				>
 			</div>
 
 			<div class="textBox" v-if="img2">
@@ -20,6 +28,7 @@
 				<p>- 보드 기능은 구독하고 있는 채널의 기사를 저장하여 보관합니다.</p>
 				<p>- 마이페이지는 다양한 편집 기능을 통해 자신의 생각을 정리하여 보관합니다.</p>
 				<a href="https://github.com/potomatoo/AndPick"><span class="mdi mdi-github"></span>Github</a>
+				<a @click="toggle('1EJcJuxBPbbtVb0DxhtdRbKnSyGxtWImf')"><span class="mdi mdi-play-circle"></span>UCC</a>
 			</div>
 
 			<div class="textBox" v-if="img3">
@@ -30,6 +39,14 @@
 				<p>- 개인 취향에 맞는 작품을 추천받을 수 있습니다.</p>
 				<p>- 좋아하는 작품을 저장하고 나만의 전시회를 만들 수 있습니다.</p>
 				<a href="https://github.com/potomatoo/MM-MyMuseum-"><span class="mdi mdi-github"></span>Github</a>
+				<a
+					@click="
+						toggle(
+							'https://drive.google.com/file/d/1CvfBE2E4uZWMGv5Xc7vBCmuNTzmvcoFt/preview?usp=sharing&embedded=true'
+						)
+					"
+					><span class="mdi mdi-play-circle"></span>UCC</a
+				>
 			</div>
 
 			<div class="textBox" v-if="img4">
@@ -41,6 +58,7 @@
 				<p>- 동시적으로 정리를 할 수 있도록 노트 필기 기능 등 다양한 기능을 제공합니다.</p>
 				<p>- NLTK를 활용하여 문제를 자동 생성합니다.</p>
 				<a href="https://github.com/potomatoo/Byeper"><span class="mdi mdi-github"></span>Github</a>
+				<a @click="toggle('1gWcaTPDuFvAL8K3370RAmBDclHxmSQst')"><span class="mdi mdi-play-circle"></span>UCC</a>
 			</div>
 
 			<div class="imgBox">
@@ -51,6 +69,15 @@
 			</div>
 		</div>
 		<thumb />
+
+		<div class="container">
+			<div id="popup">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe id="myVideo" :src="this.iframeSrc" class="jsbw__video"></iframe>
+				</div>
+				<a @click="toggle()"><b>close</b></a>
+			</div>
+		</div>
 	</div>
 </template>
 <script>
@@ -62,11 +89,23 @@ export default {
 	components: {
 		Thumb
 	},
+	data: function() {
+		return {
+			iframeSrc: ''
+		};
+	},
 	computed: {
 		...mapState(['img1', 'img2', 'img3', 'img4'])
 	},
 	methods: {
-		...mapMutations(['imgSlider'])
+		...mapMutations(['imgSlider']),
+		toggle: function(Url) {
+			var blur = document.getElementById('blur');
+			blur.classList.toggle('active');
+			var popup = document.getElementById('popup');
+			popup.classList.toggle('active');
+			this.iframeSrc = Url;
+		}
 	},
 	mounted: function() {
 		this.imgSlider({
@@ -87,6 +126,7 @@ hr {
 .webProject {
 	width: 100%;
 }
+
 .content {
 	position: relative;
 	width: 100%;
@@ -126,6 +166,7 @@ hr {
 	letter-spacing: 1px;
 	text-decoration: none;
 	margin-right: 20px;
+	cursor: pointer;
 }
 .content .textBox a span {
 	margin-right: 5px;
@@ -151,7 +192,36 @@ hr {
 		opacity: 1;
 	}
 }
+#blur.active {
+	filter: blur(20px);
+	pointer-events: none;
+	user-select: none;
+}
 
+#popup {
+	position: fixed;
+	top: 30%;
+	left: 20%;
+	transform: translate3d(-50%, -50%);
+	width: 60%;
+	box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+	background: #000;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s;
+}
+#popup.active {
+	top: 10%;
+	visibility: visible;
+	opacity: 1;
+	transition: 0.5s;
+	color: #fff;
+	text-align: right;
+}
+#popup a {
+	cursor: pointer;
+	margin: 20px;
+}
 @media (max-width: 991px) {
 	.content {
 		flex-direction: column;
@@ -185,8 +255,14 @@ hr {
 		opacity: 1;
 		animation: none;
 	}
+	#popup.active {
+		top: 25%;
+	}
 }
 @media (max-width: 700px) {
+	.content .textBox a {
+		margin-right: 15px;
+	}
 	.content .imgBox {
 		margin-top: 20px;
 	}
@@ -199,6 +275,13 @@ hr {
 	}
 	.content .textBox p {
 		font-size: 0.8em;
+	}
+	#popup {
+		left: 0;
+		width: 100%;
+	}
+	#popup.active {
+		top: 33%;
 	}
 }
 </style>
